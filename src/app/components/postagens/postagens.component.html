@@ -1,0 +1,32 @@
+<div class="container">
+    <header class="header">
+      <h1>Exibindo resultado de busca por {{assuntoPesquisado}}</h1>
+      <p>Encontramos um total de {{resultadosBusca}} resultados para a sua busca</p>
+    </header>
+    
+    <main class="main">
+      <div class="conteudo">
+        <section class = "card">
+            <img src= {{resultadoBuscaImagem}} alt="">
+            <h1>{{resultadoBuscaTitulo}}</h1>
+            <p>{{resultadoBuscaTexto}}</p>
+            <p class = "ler-mais">Ler mais</p>
+        </section>
+        </div>
+    
+        <div class="navegacao">
+        <nav>
+          <h2>Categorias</h2>
+            <ul>
+                <li><a href="#">{{linkNavagacao}}</a></li>
+            </ul>
+        </nav>
+        <section class = "pesquisar">
+            <p>Procurando alguma notícia?</p>
+            <input type="text" class="pesquisar" placeholder="pesquisar por..." >
+        </section>
+      </div>
+    </main>
+    </div>
+   
+    
