@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { catchError, finalize, tap, throwError } from 'rxjs';
 import { PostagensService } from 'src/app/service/postagens.service';
+import { Postagem } from './postagem';
 
 @Component({
   selector: 'app-postagens',
@@ -14,7 +14,7 @@ export class PostagensComponent implements OnInit {
   resultadoBuscaImagem: string;
   resultadoBuscaTitulo: string;
   resultadoBuscaTexto: string;
-  linkNavagacao: string;
+  listaDePostagens;
 
   constructor(private postagensService: PostagensService) {
     this.assuntoPesquisado = '';
@@ -22,26 +22,25 @@ export class PostagensComponent implements OnInit {
     this.resultadoBuscaImagem = '';
     this.resultadoBuscaTitulo = '';
     this.resultadoBuscaTexto = '';
-    this.linkNavagacao = '';
+    this.listaDePostagens = {};
   }
 
-  ngOnInit() {
-    this.buscarInfoPostagens();
+  ngOnInit() : void {
+    this.postagensService.getPostagens()
+    .subscribe(
+      resposta => {
+        //this.listaDePostagens = Object.entries(resposta);
+        //this.listaDePostagens.forEach(element => {
+          console.log(typeof this.listaDePostagens)
+       // });
+      }
+    )
   }
 
-  buscarInfoPostagens() {
-    return this.postagensService
-      .getPostagens()
-      .pipe(
-        tap((data) => {
-          //Lógica para lidar com os dados recebidos
-        }),
-        catchError((error) => {
-          // Lógica para lidar com erros
-          return throwError(error);
-        }),
-        finalize(() => {})
-      )
-      .subscribe();
-  }
+   minhaFuncao(){
+    
+   }
 }
+
+
+ 

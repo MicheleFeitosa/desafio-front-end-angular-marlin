@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PostagensComponent } from './components/postagens/postagens.component';
 
 @Component({
   selector: 'app-root',
